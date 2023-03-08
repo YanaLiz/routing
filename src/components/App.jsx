@@ -4,15 +4,29 @@ import { Toaster } from 'react-hot-toast';
 import { Route, Routes, Navigate } from 'react-router-dom';
 import { GlobalStyle } from './GlobalStyle';
 import { InvoiceDetails } from './InvoiceDetails';
-import { Invoices } from './Invoices';
+// import { Invoices } from './Invoices';
 import { Layout } from './Layout';
-import { Customers } from 'pages/Customers';
+// import { Customers } from 'pages/Customers';
 import { CustomerDetails } from 'pages/CustomerDetails';
 
 const Sales = lazy(() => import('../pages/Sales').then(module => ({
   ...module,
   default:module.Sales
 })))
+
+const Customers = lazy(() =>
+  import('../pages/Customers').then(module => ({
+    ...module,
+    default: module.Customers,
+  }))
+);
+
+const Invoices = lazy(() =>
+  import('../components/Invoices').then(module => ({
+    ...module,
+    default: module.Invoices,
+  }))
+);
 
 export const App = () => {
   return (
